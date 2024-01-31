@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+  {{ session ['subject'] }}
+{% endblock title %}
+
+ {% block style %}
+    <link rel="stylesheet" href="../static/CSS/index.css">
+ {% endblock style %}
+
+{% block content %}
+   <div class="nav-bar">
+         <div class="nav-logo">
+         <img src="../static/Images/Logo%20Files/white%20logo%20-%20no%20background%20(2).png" height="120" width="120">
+         </div>
+         <div class="teacher-name">
+         <h2>Wellcome {{ session ['job_title'] }} {{ session ['username'] }}</h2>
+         </div>
+         <div class="log-out"><a class="out-btn" href="/logout">Log out</a></div>
+   </div>
+    <div class="student-table">
+      <table>
+        <caption class="table-caption">List of {{ session ['subject'] }} students.</caption>
+      <thead>
+        <tr>
+          <th>Roll No.</th>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+         {% for info in student_list['student-info'] %}
+             <tr>
+                 <td data-column="roll-no">{{ info['roll-no']}}</td>
+                 <td data-column="name">{{info['name']}}</td>
+                 <td data-column="roll-no">{{ student_list['subject']}}</td>
+                 <td data-column="detail"><a href="/{{info['roll-no']}}/detail" class="view-btn">View</a></td>
+             </tr>
+         {% endfor %}
+      </tbody>
+    </table>
+   </div>
+{% endblock content %}

@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Log-in
+{% endblock title %}
+    Register
+ {% block style %}
+ <link rel="stylesheet" href="../static/CSS/login.css">
+ {% endblock style %}
+
+  {% block content %}
+    <div id="container" class="container">
+		<!-- FORM SECTION -->
+		<div class="row">
+			<!-- SIGN UP -->
+			<div class="col align-items-center flex-col sign-in">
+
+
+			</div>
+			<!-- END SIGN UP -->
+			<!-- SIGN IN -->
+			<div class="col align-items-center flex-col sign-up">
+				<div class="form-wrapper align-items-center">
+					<div class="form sign-up">
+                        <div class="logo">
+                           <img src="../static/Images/Logo%20Files/Color%20logo%20-%20no%20background.png" width="100" height="100">
+                        </div>
+                        <form method="post" action="/register">
+						   <div class="input-group">
+							<i class='bx bxs-user'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                            </i>
+							<input type="text" placeholder="Username" name="username">
+						</div>
+						   <div class="input-group">
+							<i class='bx bxs-lock-alt'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                                </svg>
+                            </i>
+							<input type="password" placeholder="Password" name="password">
+						</div>
+                           <div class="input-group">
+							<i class='bx bxs-lock-alt'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                                </svg>
+                            </i>
+							<input type="password" placeholder="Confirm-password" name="c-password">
+						 </div>
+                             <div class="input-group">
+							 <label for="subject">Choose your Subject</label><br>
+                                 <select name="subject" id="subject">
+                                    {% for  student in students %}
+                                     <option value="{{ student['subject'] }}">{{student['subject']}}<option>
+                                     {% endfor %}
+                                  </select>
+						</div>
+                           <div class="job-title">
+                                <div class="job-head">
+                                    <label for="title">Your Job Title</label>
+                                </div>
+							    <div class="job-body">
+                                    <div>
+                                         <input type="radio" id="title" name="job_title" value="Sir">
+                                         <label for="Sir">Sir</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="title" name="job_title" value="Maam">
+                                         <label for="Maam">Ma'am</label>
+                                    </div>
+                                </div>
+						    </div>
+					    	<button value="log-in">
+							Register
+						    </button>
+                        </form>
+						<p>
+                            <span>
+								 Do you have an account?
+							</span>
+							<a class="pointer" href="/">
+								Log-In
+							</a>
+						</p>
+					</div>
+				</div>
+				<div class="form-wrapper">
+
+				</div>
+			</div>
+			<!-- END SIGN IN -->
+		</div>
+		<!-- END FORM SECTION -->
+		<!-- CONTENT SECTION -->
+		<div class="row content-row">
+			<!-- SIGN IN CONTENT -->
+			<div class="col align-items-center flex-col">
+				<div class="text sign-up">
+					<h2>
+						Create account
+					</h2>
+
+				</div>
+				<div class="img sign-in">
+
+				</div>
+			</div>
+			<!-- END SIGN IN CONTENT -->
+			<!-- SIGN UP CONTENT -->
+
+			<!-- END SIGN UP CONTENT -->
+		</div>
+		<!-- END CONTENT SECTION -->
+	</div>
+
+
+
+
+
+      <script>
+
+       setTimeout(() => {
+	   container.classList.add('sign-up')
+       }, 300)
+
+      </script>
+
+  {% endblock content %}

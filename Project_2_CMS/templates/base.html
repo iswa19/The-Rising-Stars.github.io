@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Rising Stars |{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="../static/CSS/base.css">
+    <link rel="icon" type="image/x-icon" href="../static/Images/Logo%20Files/browser.png">
+    {% block style %}
+    {% endblock style %}
+</head>
+<body>
+          <div class="flash">
+           {% if get_flashed_messages() %}
+               {% for msg in get_flashed_messages() %}
+                 {% if (msg == 'Logged in successfully') or (msg == 'account created successfully') or (msg == 'quiz updated successfully') or (msg == 'Quiz added successfully') or (msg == 'Quiz deleted suuccessfully')  %}
+                    <div class="alert-1">
+                     <span class="closebtn-1" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 90 20" style="fill:#40C057;">
+                    <path d="M32,6C17.641,6,6,17.641,6,32c0,14.359,11.641,26,26,26s26-11.641,26-26C58,17.641,46.359,6,32,6z M29,42L18,31l2-3l9,6 l13.957-12L46,25L29,42z"></path>
+                    </svg>  <strong>{{ msg }}</strong>
+                </div>
+                 {% else %}
+                    <div class="alert-2">
+                     <span class="closebtn-2" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 40">
+                    <path fill="#f44336" d="M44,24c0,11-9,20-20,20S4,35,4,24S13,4,24,4S44,13,44,24z"></path><line x1="16.9" x2="31.1" y1="16.9" y2="31.1" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="4"></line><line x1="31.1" x2="16.9" y1="16.9" y2="31.1" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="4"></line>
+                     </svg>  <strong>{{ msg }}</strong>
+                </div>
+                 {% endif %}
+               {% endfor %}
+           {% endif %}
+        </div>
+          {% block content %}    {% endblock content %}
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Update Quiz{% endblock title %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="../static/CSS/add_form.css">
+{% endblock style %}
+
+{% block content %}
+
+    {% for student in students %}
+        {% if student['subject']== session['subject'] %}
+          {% for info in student['student-info'] %}
+             {% if info['roll-no']  == roll_no %}
+                 <form action="/{{ info['roll-no'] }}/update" method="post">
+                     <div class="logo">
+                        <img src="../static/Images/Logo%20Files/Color%20logo%20-%20no%20background.png" width="100" height="100">
+                     </div>
+                     <fieldset>
+                         <label for="quiz_no">Quiz No.</label>
+                         <input type="number" id="quiz_no" name="quiz-no" required>
+
+		                 <label for="quiz_topic">Quiz Topic</label>
+                         <input type="text" id="quiz_topic" name="topic" required>
+
+                        <label for="status">Status</label>
+                        <input type="text" id="status" name="status" required>
+
+                       <label for="total_marks">Total Marks</label>
+                       <input type="number" id="total_marks" name="total-marks" required>
+
+                       <label for="obtain_marks">Obtain Marks</label>
+                       <input type="number" id="obtain_marks" name="obtain-marks" required>
+                     </fieldset>
+                     <button type="submit">Submit</button>
+                 </form>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endblock content %}
